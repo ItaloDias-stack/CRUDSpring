@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<h1>Realize o seu login</h1>
+		</div>
+		<div class="row">
+			<span th:if="${logError != null}" class="alert alert-danger">Nome
+				de usuário ou senha inválido.</span></br>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="login-form">
+					<form method="post">
+						<div class="form-group">
+							<label for="exampleInputUsername">Username</label> <input
+								type="text" class="form-control" id="exampleInputUsername"
+								aria-describedby="emailHelp" placeholder="Username"
+								name="username">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Senha</label> <input
+								type="password" class="form-control" id="exampleInputPassword1"
+								placeholder="Senha" name="senha">
+						</div>
+						<button type="submit" class="btn btn-primary">Logar</button>
+						<a href="/professor/cadastro">Criar Usuario</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

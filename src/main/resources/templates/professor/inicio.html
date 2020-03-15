@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<h1>
+				Seja Bem-vindo
+				<spam th:text="${professor.nome}"></spam>
+			</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome</th>
+						<th scope="col">Idade</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Deletar</th>
+					</tr>
+				</thead>
+				<tbody th:each="aluno : ${alunos}" th:remove="tag">
+					<tr>
+						<td th:text="${aluno.nome}"></td>
+						<td th:text="${aluno.idade}"></td>
+						<td><a th:href="@{/updateAluno/{id}/{idP}(id=${aluno.idAluno},idP=${professor.idProfessor})}">Editar</a></td>
+						<td><a th:href="@{/deletaAluno/{id}/{idP}(id=${aluno.idAluno},idP=${professor.idProfessor})}">Deletar</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="col"></div>
+			<div class="col">
+				<a th:href="@{/cadastroAluno/{id}(id=${professor.idProfessor})}" class="btn btn-success center">Adicionar Aluno</a>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
+</body>
+</html>
